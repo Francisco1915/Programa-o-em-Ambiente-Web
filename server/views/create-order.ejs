@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="/stylesheets/cssMain.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/book.png">
+
+</head>
+
+<body>
+
+    <!-- Header-->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/orders" class="nav-brand text-dark">
+                        <%= title %>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Site-->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/employee"><i class="fas fa-angle-double-left"></i> Employee System</a>
+                </div>
+            </div>
+            <!-- Form -->
+            <form action="<%= action %>" method="<%= method %>">
+                <div class="form-group">
+                    <label>Employee Email:</label>
+                    <select class="custom-select" name="emailEmployee">
+                        <% if (list.employees && list.employees.length) { %>
+                            <% list.employees.forEach(function (employee) { %>
+                                <option>
+                                    <%= employee.email %>
+                                </option>
+                            <% }) %>
+                        <% } %>
+                    </select>
+                    <span id="textStatus" style="color: red">
+                        <%= order.idEmployeeError %>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Client Email:</label>
+                    <select class="custom-select" name="emailCliente">
+                        <% if (list.clients && list.clients.length) { %>
+                            <% list.clients.forEach(function (client) { %>
+                                <option>
+                                    <%= client.email %>
+                                </option>
+                            <% }) %>
+                        <% } %>
+                    </select>
+                    <span id="textStatus" style="color: red">
+                        <%= order.idClientError %>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Books to buy:</label>
+                    <select multiple class="custom-select" name="books" id="ola">
+                        <% if (list.books && list.books.length) { %>
+                            <% list.books.forEach(function (book) { %>
+                                <% if (book.qt !== 0) { %>
+                                <option>
+                                    <%= book.isbn %> <%= book.status %> <%= book.price %> € <%= book.title %> <%= book.author %>
+                                </option>
+                                <% } %>
+                            <% }) %>
+                        <% } %>
+                    </select>
+                    <span id="textStatus" style="color: red">
+                        <%= order.booksError %>
+                    </span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="../javascripts/orderSelect.js"></script>
+
+</body>
+
+</html>

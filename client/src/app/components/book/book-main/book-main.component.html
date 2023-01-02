@@ -1,0 +1,323 @@
+<div class="h-5/6 py-8 bg-orange-100 overflow-auto">
+
+    <div id="default-carousel" class="relative mb-24" data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <span
+                    class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/1 -translate-y-1/2 sm:text-3xl">
+                    <h4 class="mt-2 text-3xl font-medium text-gray-700">
+                        Um de Nos Mente
+                        
+                    </h4>
+                    <div>
+                        <p class="text-2xl font-medium text-gray-700">978-1-56619-909-9</p>
+                        <p class="text-2xl font-medium text-gray-700">Luis Sousa</p>
+                        <p class="pb-3 text-sm font-medium text-gray-700">Romance</p>
+                        <p class="inline-block w-16 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">New</p>
+                        <p class="inline-block pl-16 text-lg text-green-500">Available</p>
+                    </div>
+                </span>
+                <span class="absolute left-1/4">
+                    <img src="http://localhost:3000/uploads/bookCovers/9f6d32e36b942d0cb84d8719d10448b8 " alt="Book"
+                        class="w-150px h-250px">
+                </span>
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <span
+                    class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/1 -translate-y-1/2 sm:text-3xl">
+                    <h4 class="mt-2 text-3xl font-medium text-gray-700">
+                        Um de Nos Mente
+                        
+                    </h4>
+                    <div>
+                        <p class="text-2xl font-medium text-gray-700">978-1-56619-909-9</p>
+                        <p class="text-2xl font-medium text-gray-700">Luis Sousa</p>
+                        <p class="pb-3 text-sm font-medium text-gray-700">Romance</p>
+                        <p class="inline-block w-16 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">New</p>
+                        <p class="inline-block pl-16 text-lg text-green-500">Available</p>
+                    </div>
+                </span>
+                <span class="absolute left-1/4">
+                    <img src="http://localhost:3000/uploads/bookCovers/9f6d32e36b942d0cb84d8719d10448b8 " alt="Book"
+                        class="w-150px h-250px">
+                </span>
+            </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1"
+                data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                data-carousel-slide-to="2"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button"
+            class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+            data-carousel-prev>
+            <span
+                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <span class="hidden">Previous</span>
+            </span>
+        </button>
+        <button type="button"
+            class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+            data-carousel-next>
+            <span
+                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="hidden">Next</span>
+            </span>
+        </button>
+    </div>
+
+    <div class="flex mx-12 justify-center">
+        <div class="bg-white w-1/6 py-6 px-4 mt-24 rounded-xl">
+            <div class="flex pb-4 justify-center items-center">
+                <label
+                    class="bg-color-white flex h-10 w-64 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <span class="text-xs font-bold">Filter by Price:</span>
+                </label>
+            </div>
+            <div class="flex flex-col items-center justify-center pb-4">
+                <!-- App -->
+                <div class="" x-cloak x-data="appData()" x-init="appInit()">
+                    <!-- Player -->
+                    <div class="relative">
+                        <!-- Player Slider Container -->
+                        <div class="x-slider flex relative my-3">
+                            <!-- Player Slider -->
+                            <div class="x-slider inline justify-center rounded-md">
+                                <!-- Range Input -->
+                                <input class="absolute bg-transparent rounded-md
+                                    z-10 h-1 w-40 outline-0 appearance-none" type="range" step="1" min='0' max="100"
+                                    value="0" x-model="sliderValue"
+                                    x-on:change.debounce="sliderProgressValue = sliderProgressToValue(sliderValue, maxLength)"
+                                    [(ngModel)]="searchTermPrice" (change)="getBooks()">
+
+                                <!-- Slider Placeholder -->
+                                <div class="absolute z-0 w-40 h-0.5 mt-0.5 rounded-md bg-gray-500/70"></div>
+
+                                <!-- Progress -->
+                                <div class="absolute z-0 w-40 h-1.5 rounded-md bg-green-600
+                                    bg-gradient-to-r from-emerald-700 to-green-500"
+                                    x-bind:style="'width: ' + (sliderValue * 2) + 'px !important; '"></div>
+                                <!-- x-slider is width 200px -->
+                            </div>
+                        </div>
+
+                        <!-- Duration Container -->
+                        <div class="flex flex-row flex-grow justify-start px-0.5">
+                            <!-- Current Time -->
+                            <div class="text-gray-500/90 text-sm select-none" x-text="sliderProgressValue + '€'">
+                            </div>
+
+                            <!-- Grow Space -->
+                            <div class="grow"></div>
+
+                            <!-- Total Time -->
+                            <div class="text-gray-400/90 text-sm select-none pr-1" x-text="maxLength + '€'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_9"
+                    class="flex h-10 w-64 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <span class="text-xs font-bold">Filter by Availability:</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_9"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_9" name="searchTermAvailable" value=""
+                        [(ngModel)]="searchTermAvailable" (change)="getBooks()" />
+                    <span class="text-xs font-bold">All Books</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_10"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_10" name="searchTermAvailable" value="1"
+                        [(ngModel)]="searchTermAvailable" (change)="getBooks()" />
+                    <span class="text-xs font-bold">Available</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_11"
+                    class="flex h-10 w-64 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <span class="text-xs font-bold">Filter by Emphasis:</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_11"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_11" name="searchTermEmphasis" value="True"
+                        [(ngModel)]="searchTermEmphasis" (change)="getBooks()" />
+                    <span class="text-xs font-bold">True</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_12"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_12" name="searchTermEmphasis" value=""
+                        [(ngModel)]="searchTermEmphasis" (change)="getBooks()" />
+                    <span class="text-xs font-bold">False</span>
+                </label>
+            </div>
+
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_1"
+                    class="flex h-10 w-64 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <span class="text-xs font-bold">Filter by type:</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_1"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_1" name="searchTermType" value="" [(ngModel)]="searchTermType"
+                        (change)="getBooks()" />
+                    <span class="text-xs font-bold">All Types</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_2"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_2" name="searchTermType" value="True crime"
+                        [(ngModel)]="searchTermType" (change)="getBooks()" />
+                    <span class="text-xs font-bold">True crime</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_3"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_3" name="searchTermType" value="Science" [(ngModel)]="searchTermType"
+                        (change)="getBooks()" />
+                    <span class="text-xs font-bold">Science</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_4"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_4" name="searchTermType" value="Romance" [(ngModel)]="searchTermType"
+                        (change)="getBooks()" />
+                    <span class="text-xs font-bold">Romance</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_5"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_5" name="searchTermType" value="Humor" [(ngModel)]="searchTermType"
+                        (change)="getBooks()" />
+                    <span class="text-xs font-bold">Humor</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_6"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_6" name="searchTermType" value="History" [(ngModel)]="searchTermType"
+                        (change)="getBooks()" />
+                    <span class="text-xs font-bold">History</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_7"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_7" name="searchTermType" value="Comedy" [(ngModel)]="searchTermType"
+                        (change)="getBooks()" />
+                    <span class="text-xs font-bold">Comedy</span>
+                </label>
+            </div>
+            <div class="flex pb-4 justify-center items-center">
+                <label for="radio_8"
+                    class="flex h-10 w-44 border-2 border-gray-400 cursor-pointer rounded-xl justify-around items-center">
+                    <input type="radio" id="radio_8" name="searchTermType" value="Horror" [(ngModel)]="searchTermType"
+                        (change)="getBooks()" />
+                    <span class="text-xs font-bold">Horror</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mt-6 pl-12 w-full h-screen">
+            <div
+                class="flex items-center justify-between text-sm tracking-widest uppercase rounded-md bg-white bg-opacity-90 p-4">
+                <p>{{ booksCount }} Items</p>
+                <div class="flex justify-end">
+                    <div class="pr-2">
+                        <input class="bg-transparent border-2 border-gray-400 cursor-pointer" type="text"
+                            name="searchTerm" placeholder="Filter by book name" [(ngModel)]="searchTermTitle"
+                            (change)="getBooks()" />
+                    </div>
+                    <div class="pl-2">
+                        <input class="bg-transparent border-2 border-gray-400 cursor-pointer" type="text"
+                            name="searchTermIsbn" placeholder="Filter by book isbn" [(ngModel)]="searchTermIsbn"
+                            (change)="getBooks()" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-6">
+                <div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto p-2 shadow-lg rounded-md bg-white bg-opacity-90"
+                    *ngFor="
+            let b of books | paginate: { itemsPerPage: 12, currentPage: p }
+          ">
+                    <a href="/books/details/{{ b._id }}" class="w-full">
+                        <img class="bg-contain w-full rounded-md h-72 xl:h-80" src="http://localhost:3000/uploads/bookCovers/{{
+                b.coverImageName
+              }} " alt="Book" />
+                        <h4 class="mt-2 text-lg font-medium text-gray-700">
+                            {{ b.title }}
+                        </h4>
+                        <div>
+                            <p class="text-md font-medium text-gray-700">{{ b.isbn }}</p>
+                            <p class="text-md font-medium text-gray-700">{{ b.author }}</p>
+                            <p class="pb-3 text-sm font-medium text-gray-700">{{ b.type }}</p>
+                            <p
+                                class="inline-block w-16 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                                {{ b.status }}</p>
+                            <p class="inline-block pl-16 text-lg text-green-500" *ngIf="b.qt != 0">Available</p>
+                            <p class="inline-block pl-16 text-lg text-red-500" *ngIf="b.qt == 0">No stock</p>
+                        </div>
+                    </a>
+                    <button (click)="addToCart(b)" *ngIf="!(b.qt == 0 || !isLoggedIn())"
+                        class="flex items-center justify-center px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-800 rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-1" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                        </svg>
+                        <span class="mx-1">Add to cart {{b.price}} €</span>
+                    </button>
+                    <button (click)="addToCart(b)" *ngIf="b.qt == 0 || !isLoggedIn()"
+                        class="flex items-center justify-center px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-800 rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700 opacity-50 cursor-not-allowed">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-1" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                        </svg>
+                        <span class="mx-1">Add to cart {{b.price}} €</span>
+                    </button>
+                    <div *ngIf="selectedBook == b">
+                        <p class="text-red-500"> {{message}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5 flex justify-center rounded-md bg-white bg-opacity-90" *ngIf="booksCount">
+                <pagination-controls class="pt-4" *ngIf="booksCount > 0" (pageChange)="p = $event">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

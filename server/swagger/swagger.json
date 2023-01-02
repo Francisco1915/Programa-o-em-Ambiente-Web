@@ -1,0 +1,28 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Swagger demo for the item REST api book store.",
+    "version": "1.0.0",
+    "title": "Swagger Book Store API",
+    "contact": {
+      "email": "8200398@estg.ipp.pt"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Books",
+      "description": "Representation of our books"
+    }
+  ],
+  "schemes": ["http"],
+  
+  "securityDefinitions": {
+    "item_jwt_auth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-access-token"
+    }
+  }
+}

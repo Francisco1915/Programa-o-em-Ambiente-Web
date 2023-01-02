@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/cssBook.css">
+    <link rel="icon" type="image/x-icon" href="/images/book.png">
+
+</head>
+
+<body>
+
+    <!-- Header-->
+    <header id="header">
+        <nav class="d-flex">
+            <div class="margin-left">
+                <a href="/" class="nav-brand text-dark">Home</a>
+            </div>   
+            <div class="container">
+                <div class="text-center">
+                    <a href="/books" class="nav-brand text-dark">Book System</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Site-->
+    <main id="site-main">
+        <div class="container">
+            <form action="/books" method="GET">
+                <div class="box-nav d-flex margin-bottom margin-left justify-between">
+                    <a href="/books/add-book" class="border-shadow">
+                        <span class="text-gradient">New Book <i class="fa-solid fa-user"></i></span>
+                    </a>
+                    <span class="text-gradient input" >Title</span>
+                    <input type="text" name="title" placeholder="Title..." value="<%= searchOptions.title %>">
+                    <span class="text-gradient input" >Published After</span>
+                    <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+                    <span class="text-gradient input" >Published Before</span>
+                    <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
+                </div>
+                <div class="box-nav d-flex margin-bottom margin-left justify-between">
+                    <a href="/books/requests" class="border-shadow">
+                        <span class="text-gradient">Request Used Books<i class="fa-solid fa-user"></i></span>
+                    </a>
+                </div>
+            </form>
+            <% if (books && books.length) { %>
+                <div class="container row row-cols-3">
+                    <% books.forEach(function (book) { %>
+                        <div class="box-nav d-flex justify-between margin-bottom col">
+                            <ul class="list-group">
+                                <li class="list-group-item border-shadow">
+                                    <img class="img.thumbnail imgBook margin-bottom" src="/uploads/bookCovers/<%= book.coverImageName %>"><br>
+                                    <div class="row">
+                                        <span class="title">
+                                            <%= book.title %>
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="author col">
+                                            <%= book.author %>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="isbn col">
+                                            <%= book.isbn %>
+                                        </span>
+                                    </div>
+                                    <div class="row row-col-2">
+                                        <span class="price col">
+                                            <%= book.price %>€
+                                        </span>
+                                        <% if (book.status=="Old" ) { %>
+                                            <span class="status col text-center rounded-3 margin-status"
+                                                style="background-color: red;">
+                                                <%= book.status %>
+                                            </span>
+                                            <% } else { %>
+                                                <span class="status col text-center rounded-3 margin-status"
+                                                    style="background-color: green;">
+                                                    <%= book.status %>
+                                                </span>
+                                                <% } %>
+                                    </div>
+                                    <div class="row row-col-6">
+                                        <a href="/books/<%= book._id %>" class="btn border-shadow view col form-btn">
+                                            <span class="text-gradient"><i class="fa-regular fa-eye padding-top-icon"></i></span>
+                                        </a>
+                                        <a href="/books/edit/<%= book._id %>" class="btn border-shadow update col form-btn">
+                                            <span class="text-gradient"><i class="fas fa-pencil-alt padding-top-icon"></i></span>
+                                        </a>
+                                        <form class="btn border-shadow col" action="/books/decrement/<%= book._id%>/<%= book.qt%>" method="post">
+                                            <button type="submit" class="btn btn-primary">-</button>
+                                        </form>
+                                        <span class="col padding-top">
+                                            <%= book.qt %>
+                                        </span>
+                                        <form class="btn border-shadow col"
+                                            action="/books/increment/<%= book._id%>/<%= book.qt%>" method="post">
+                                            <button type="submit" class="btn btn-primary">+</button>
+                                        </form>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn border-shadow delete col form-btn"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal1<%= book._id%>">
+                                            <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal1<%= book._id%>" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure??
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <form action="/books/delete/<%= book._id%>" method="post">
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <% }) %>
+                </div>
+                <% } else { %>
+                    <div class="box-nav d-flex justify-between margin-left">
+                        <ul class="list-group">
+                            <li class="list-group-item border-shadow">
+                                <h1 class="title">Books Not Found</h1>
+                            </li>
+                        </ul>
+                    </div>
+                    <% } %>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

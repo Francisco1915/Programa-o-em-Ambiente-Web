@@ -1,0 +1,64 @@
+<div class="overflow-auto h-5/6 bg-orange-100">
+    <div *ngIf="book" class="max-w-5xl flex items-center lg:h-screen flex-wrap mx-auto">
+
+        <!--Main Col-->
+        <div id="profile"
+            class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+
+
+            <div class="p-4 md:p-12 text-center lg:text-left">
+
+                <h1 class="text-3xl font-bold pt-8 lg:pt-0">{{book.title}}</h1>
+                <p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
+                    {{book.author}}</p>
+                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+                <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">{{book.isbn}}</p>
+                <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">{{book.type}}</p>
+                <p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
+                    {{book.status}}</p>
+                <p class="pt-8 text-sm">{{book.desc}}</p>
+
+                <div class="pt-12 pb-8">
+                    <button (click)="addToCart()"
+                        class="flex items-center justify-center bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-1" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                        </svg>
+                        Add to Cart {{book.price}} €
+                    </button>
+                </div>
+
+                <!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
+
+            </div>
+
+        </div>
+
+        <!--Img Col-->
+        <div class="w-full lg:w-2/5">
+            <!-- Big profile image for side bar (desktop) -->
+            <img class="bg-contain w-full rounded-md"
+                src="http://localhost:3000/uploads/bookCovers/{{book.coverImageName}} " alt="Book">
+        </div>
+    </div>
+
+    <div *ngIf="!book" class="">
+        <div class="w-9/12 m-auto py-16 min-h-screen flex items-center justify-center">
+            <div class="bg-white shadow overflow-hidden sm:rounded-lg pb-8 w-full">
+                <div class="border-t border-gray-200 text-center pt-8">
+                    <h1 class="text-9xl font-bold text-purple-400">404</h1>
+                    <h1 class="text-6xl font-medium py-8">oops! Page not found</h1>
+                    <p class="text-2xl pb-8 px-12 font-medium">{{message}}</p>
+                    <a href="/books">
+                        <button
+                            class="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-md mr-6">
+                            HOME
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

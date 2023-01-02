@@ -1,0 +1,136 @@
+<div class="flex pt-24 justify-center overflow-auto h-5/6 bg-orange-100">
+    <div class="flex w-[40rem] flex-col space-y-10">
+        <div class="text-center text-4xl font-medium">Sign in</div>
+
+        <form [formGroup]="formUser" (ngSubmit)="register()">
+
+            <div class="pb-6">
+                <div
+                    class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+                    <input formControlName="name" type="text" value="" name="name" placeholder="Name..."
+                        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                </div>
+                <div *ngIf="name">
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <div *ngIf="name.errors?.['required']">Name is required.</div>
+                        <div *ngIf="name.errors?.['minlength']">
+                            Name must be at least 3 characters long.
+                        </div>
+                        <div *ngIf="name.errors?.['maxlength']">
+                            Name cant have more then 30 characters.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pb-6">
+                <div
+                    class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+                    <input formControlName="email" type="email" value="" name="email" placeholder="Email..."
+                        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                </div>
+                <div *ngIf="email">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors?.['required']">Email is required.</div>
+                        <div *ngIf="email.errors?.['email']">
+                            Invalid email.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pb-6">
+                <div
+                    class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+                    <input formControlName="password" type="password" value="" name="password" placeholder="Password..."
+                        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                </div>
+                <div *ngIf="password">
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                        <div *ngIf="password.errors?.['required']">Password is required.</div>
+                        <div *ngIf="password.errors?.['minlength']">
+                            Password must be at least 8 characters long.
+                        </div>
+                        <div *ngIf="password.errors?.['maxlength']">
+                            Password cant have more then 20 characters.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pb-6">
+                <div
+                    class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+                    <input formControlName="phone" type="text" value="" name="phone" placeholder="Phone number..."
+                        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                </div>
+                <div *ngIf="phone">
+                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                        <div *ngIf="phone.errors?.['required']">Phone is required.</div>
+                        <div *ngIf="phone.errors?.['pattern']">
+                            Invalid phone number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pb-6">
+                <label>Gender:</label>
+                <select formControlName="gender" name="gender"
+                    class="border text-sm rounded-lg block w-full p-2.5 bg-orange-100">
+                    <option>None</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <div *ngIf="gender">
+                    <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+                        <div *ngIf="gender.errors?.['required']">
+                            Gender is required.
+                        </div>
+                        <div *ngIf="gender.errors?.['pattern']">
+                            Just accept "None", "Male" or "Female".
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pb-6">
+                <label>Birthday:</label>
+                <div
+                    class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+                    <input formControlName="date" type="date" value=""  name="date" 
+                        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+                </div>
+                <div *ngIf="date">
+                    <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                        <div *ngIf="date.errors?.['required']">
+                            Date is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="transform rounded-sm bg-indigo-300 py-2 font-bold duration-300 hover:bg-indigo-100 w-full" type="submit" [disabled]="!formUser.valid">
+                Create account
+            </button>
+            <p class="text-center text-lg pb-24">
+                <a href="/login" class="font-medium text-indigo-400 underline-offset-4 hover:underline">Already have an
+                    account</a>
+            </p>
+            <div *ngIf="message"
+      class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+      <svg class="inline flex-shrink-0 mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+          clip-rule="evenodd"></path>
+      </svg>
+      <div>
+        <span class="font-medium">Danger alert!</span> {{message}}
+      </div>
+    </div>
+        </form>
+        
+    </div>
+</div>

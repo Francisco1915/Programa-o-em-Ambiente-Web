@@ -1,0 +1,23 @@
+###
+GET http://localhost:3000/api/v1/books
+
+###
+GET http://localhost:3000/api/v1/api-docs
+
+###
+GET http://localhost:3000/api/v1/books/627fb1f11b7eca3cc8541b27
+
+###
+GET http://localhost:3000/api/v1/carts
+
+###
+GET http://localhost:3000/api/v1/carts/cartSize
+
+###
+POST http://localhost:3000/api/v1/carts/add-to-cart
+
+###
+POST http://localhost:3000/api/v1/carts/remove-from-cart
+
+###
+POST http://localhost:3000/api/v1/carts/checkout

@@ -1,0 +1,216 @@
+<div class="pl-96 py-12 mt-10 sm:mt-0 h-5/6 overflow-auto bg-orange-100">
+  <form [formGroup]="formBook">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name">Book
+                  title.
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="title" name="title" placeholder="Book title..." />
+                </label>
+                <div *ngIf="title">
+                  <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+                    <div *ngIf="title.errors?.['required']">
+                      Name is required.
+                    </div>
+                    <div *ngIf="title.errors?.['minlength']">
+                      Title must be at least 3 characters long.
+                    </div>
+                    <div *ngIf="title.errors?.['maxlength']">
+                      Title cant have more then 15 characters.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Book author.
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="author" name="author" placeholder="Book author..." />
+                </label>
+                <div *ngIf="author">
+                  <div *ngIf="author.invalid && (author.dirty || author.touched)" class="alert alert-danger">
+                    <div *ngIf="author.errors?.['required']">
+                      Author is required.
+                    </div>
+                    <div *ngIf="author.errors?.['minlength']">
+                      Author must be at least 2 characters long.
+                    </div>
+                    <div *ngIf="author.errors?.['maxlength']">
+                      Author cant have more then 15 characters.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6">
+                <div>
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Cover photo
+                  </label>
+                  <div
+                    class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                    <div class="space-y-1 text-center">
+                      <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
+                        aria-hidden="true">
+                        <path
+                          d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <div class="flex text-sm text-gray-600">
+                        <label for="file-upload"
+                          class="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                          <span>Upload a file</span>
+                          <input id="file-upload" type="file" class="sr-only" name="cover" (change)="getFile($event)">
+                        </label>
+                        <p class="pl-1">or drag and drop</p>
+                      </div>
+                      <p class="text-xs text-gray-500">PNG, JPG, GIF</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Book Type:
+                  <select
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="type" name="type" name="type">
+                    <option>True crime</option>
+                    <option>Science</option>
+                    <option>Horror</option>
+                    <option>Comedy</option>
+                    <option>History</option>
+                    <option>Humor</option>
+                    <option>Romance</option>
+                  </select> </label>
+                <div *ngIf="type">
+                  <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                    <div *ngIf="type.errors?.['required']">
+                      Type is required.
+                    </div>
+                    <div *ngIf="type.errors?.['pattern']">
+                      Just accept "True crime", "Science", "Horror", "Comedy", "History", "Humor", or "Romance".
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Book isbn.
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="isbn" name="isbn" placeholder="Book isbn..." />
+                </label>
+                <div *ngIf="isbn">
+                  <div *ngIf="isbn.invalid && (isbn.dirty || isbn.touched)" class="alert alert-danger">
+                    <div *ngIf="isbn.errors?.['required']">
+                      Isbn is required.
+                    </div>
+                    <div *ngIf="isbn.errors?.['pattern']">
+                      Isbn need to follow a pattern.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Book Desc:
+                  <textarea
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="desc" name="desc" placeholder="Book Description"></textarea>
+                </label>
+                <div *ngIf="desc">
+                  <div *ngIf="desc.invalid && (desc.dirty || desc.touched)" class="alert alert-danger">
+                    <div *ngIf="desc.errors?.['required']">
+                      Description is required.
+                    </div>
+                    <div *ngIf="desc.errors?.['minlength']">
+                      Description need to have at least 10 characters.
+                    </div>
+                    <div *ngIf="desc.errors?.['maxlength']">
+                      Description cant have more then 150 characters.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Book price:
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="price" name="price" placeholder="Book price" type="number" />
+                </label>
+                <div *ngIf="price">
+                  <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+                    <div *ngIf="price.errors?.['required']">
+                      Price is required.
+                    </div>
+                    <div *ngIf="price.errors?.['min']">
+                      Min price is 2 €.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Book date:
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="date" name="date" placeholder="Book Description" type="date" />
+                </label>
+                <div *ngIf="date">
+                  <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                    <div *ngIf="date.errors?.['required']">
+                      Date is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Book Quantity:
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="qt" name="qt" placeholder="Book Quantity" type="number" />
+                </label>
+                <div *ngIf="qt">
+                  <div *ngIf="qt.invalid && (qt.dirty || qt.touched)" class="alert alert-danger">
+                    <div *ngIf="qt.errors?.['required']">
+                      Quantity is required.
+                    </div>
+                    <div *ngIf="qt.errors?.['min']">
+                      Min quantity is 1.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-4 py-3 text-right sm:px-6">
+            <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+              type="submit" (click)="addBook()" >Save</button>
+            <div *ngIf="message"
+              class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+              role="alert">
+              <svg class="inline flex-shrink-0 mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <div>
+                <span class="font-medium">Danger alert!</span> {{message}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

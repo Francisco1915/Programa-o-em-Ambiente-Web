@@ -1,0 +1,132 @@
+<form [formGroup]="formUser" (ngSubmit)="edit()">
+    <div class="px-4 py-5 sm:p-6">
+        <div *ngIf="user" class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    for="grid-first-name">Name:
+                    <input
+                        class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        formControlName="name" name="name" placeholder="Name..." type="text" />
+                </label>
+                <div *ngIf="name">
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <div *ngIf="name.errors?.['required']">Name is required.</div>
+                        <div *ngIf="name.errors?.['minlength']">
+                            Name must be at least 3 characters long.
+                        </div>
+                        <div *ngIf="name.errors?.['maxlength']">
+                            Name cant have more then 30 characters.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    for="grid-first-name">Phone:
+                    <input
+                        class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        formControlName="phone" name="phone" placeholder="Phone..."
+                         type="text" />
+                </label>
+                <div *ngIf="phone">
+                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                        <div *ngIf="phone.errors?.['required']">Phone is required.</div>
+                        <div *ngIf="phone.errors?.['pattern']">Invalid phone number.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+                <label class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">Email:
+                    <input
+                        class="appearance-none w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        formControlName="email" name="email" placeholder="Email..."
+                         type="email" />
+                </label>
+                <div *ngIf="email">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors?.['required']">Email is required.</div>
+                        <div *ngIf="email.errors?.['email']">Invalid email.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+                <label class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    for="grid-first-name">Birthday:
+                    <input
+                        class="appearance-none w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        formControlName="date" name="date" type="date" value="user.date | date:'mediumDate'" />
+                </label>
+                <div *ngIf="date">
+                    <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                        <div *ngIf="date.errors?.['required']">Date is required.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+                <label class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Gender:</label>
+                <select
+                    class="appearance-none w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    formControlName="gender" name="gender" >
+                    <option>None</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <div *ngIf="gender">
+                    <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+                        <div *ngIf="gender.errors?.['required']">Gender is required.</div>
+                        <div *ngIf="gender.errors?.['pattern']">
+                            Just accept "None", "Male" or "Female".
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+                <label class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    for="grid-first-name">Confirm Password:
+                    <input
+                        class="appearance-none w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        formControlName="password" name="password" type="password" />
+                </label>
+                <div *ngIf="password">
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                        <div *ngIf="password.errors?.['required']">
+                            Password is required.
+                        </div>
+                        <div *ngIf="password.errors?.['minlength']">
+                            Password must be at least 8 characters long.
+                        </div>
+                        <div *ngIf="password.errors?.['maxlength']">
+                            Password cant have more then 20 characters.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-6">
+                <button
+                    class="transform rounded-sm bg-indigo-300 py-2 font-bold duration-300 hover:bg-indigo-100 w-full"
+                    type="submit" [disabled]="!formUser.valid">
+                    Edit account
+                </button>
+            </div>
+
+            <div *ngIf="message"
+      class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+      <svg class="inline flex-shrink-0 mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+          clip-rule="evenodd"></path>
+      </svg>
+      <div>
+        <span class="font-medium">Danger alert!</span> {{message}}
+      </div>
+    </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+<div class="px-4 py-5 sm:p-6">
+    <div *ngIf="user" class="grid grid-cols-6 gap-6">
+        <div class="col-span-6 sm:col-span-3">
+            <label for="name" class="block text-xl font-medium text-gray-700">Name:</label>
+            <label for="name">{{ user.name }}</label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label for="phone" class="block text-xl font-medium text-gray-700">Phone:</label>
+            <label for="phone">{{ user.phone }}</label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label for="email" class="block text-xl font-medium text-gray-700">Email
+                address:</label>
+            <label for="email">{{ user.email }}</label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+            <label for="date" class="block text-xl font-medium text-gray-700">DOB:</label>
+            <label for="date">{{ user.date | date:'mediumDate' }}</label>
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <label for="gender" class="block text-xl font-medium text-gray-700">Gender:</label>
+            <label for="gender">{{ user.gender }}</label>
+        </div>
+
+        <div *ngIf="user.role == 'User'" class="col-span-6 sm:col-span-4">
+            <label for="points" class="block text-xl font-medium text-gray-700">Points:</label>
+            <label for="points">{{ user.points | number:'1.2-2'}}</label>
+        </div>
+    </div>
+</div>

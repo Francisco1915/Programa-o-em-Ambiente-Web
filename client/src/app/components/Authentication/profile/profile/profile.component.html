@@ -1,0 +1,45 @@
+<div class="bg-orange-100 h-5/6">
+    <div *ngIf="user" class="flex flex-col w-full">
+
+
+            <div class="pt-12 px-32">
+                
+                <app-profile-header [user]="user" ></app-profile-header>
+
+                <div class="py-12">
+                    <div class="flex flex-row w-full h-96">
+                        <div class="bg-gray-200 w-1/5 cursor-pointer shadow-md sm:rounded-md">
+                            <div class="p-4">
+                                    <ul class="divide-y divide-gray-400">
+                                        <li class="p-4 hover:bg-gray-200 cursor-pointer">
+                                            <button (click)="changeSelect('profile')">INFO PROFILE</button> 
+                                        </li>
+                                        <li class="p-4 hover:bg-gray-200 cursor-pointer">
+                                            <button (click)="changeSelect('profileEdit')">EDIT PROFILE</button>  
+                                        </li>
+                                        <li *ngIf="!isAdmin()" class="p-4 hover:bg-gray-200 cursor-pointer">
+                                            <button (click)="changeSelect('profileHistory')">ORDER HISTORY</button> 
+                                        </li>
+                                        <li *ngIf="!isAdmin()" class="p-4 hover:bg-gray-200 cursor-pointer">
+                                            <button (click)="changeSelect('profileRequest')">REQUEST SELL</button>        
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div *ngIf="selectProfile" class="bg-gray-200 w-4/5 cursor-pointer shadow-md overflow-auto sm:rounded-md">
+                            <app-profile-details [user]="user" ></app-profile-details>
+                        </div>
+                        <div *ngIf="selectProfileEdit" class="bg-gray-200 w-4/5 cursor-pointer shadow-md overflow-auto sm:rounded-md">
+                            <app-profile-edit [user]="user" ></app-profile-edit>
+                        </div>
+                        <div *ngIf="selectProfileHistory && !isAdmin()" class=" bg-gray-200 w-4/5 cursor-pointer shadow-md overflow-auto sm:rounded-md">
+                            <app-profile-history [user]="user"></app-profile-history>
+                        </div>
+                        <div *ngIf="selectProfileRequest && !isAdmin()" class="bg-gray-200 w-4/5 cursor-pointer shadow-md overflow-auto sm:rounded-md">
+                            <app-profile-request [user]="user"></app-profile-request>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+    </div>
+</div>

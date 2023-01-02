@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+    id="bootstrap-css" />
+  <link rel="stylesheet" href="/stylesheets/cssMain.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="/images/book.png">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <nav>
+      <div class="container">
+        <div class="text-center">
+          <a href="/employee/add-employee" class="nav-brand text-dark">
+            <%= title %>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main site -->
+  <main id="site-main-form">
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+        <div class="filter">
+          <a href="/employee"><i class="fas fa-angle-double-left"></i> All Employees</a>
+        </div>
+      </div>
+      <!-- Form -->
+      <form id="form" action="<%= action %>" method="<%= method %>">
+        <div class="form-group">
+          <label for="name">Name: *</label>
+          <input id="nameInput" type="text" class="form-control" placeholder="Enter name..." name="name"
+            value="<%= employee.name %>" />
+            <span id="textName" style="color: red;"><%= employee.nameError %></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email adress: *</label>
+          <input id="emailInput" onchange="errorEmail()" type="email" class="form-control" placeholder="Enter email..."
+            name="email" value="<%= employee.email %>" />
+          <span id="textEmail" style="color: red;"><%= employee.emailError %></span>
+        </div>
+        <% if ( action == "create") { %>
+        <div class="form-group">
+          <label for="pw">Password: *</label>
+          <input id="pwInput" type="password" class="form-control" placeholder="Enter password..." name="password" onchange="errorPw()"/>
+            <span id="textPw" style="color: red;"><%= employee.pwError %></span>
+        </div>
+        <% } %>
+        <div class="form-group">
+          <label for="phone">Phone: *</label>
+          <input id="phoneInput" type="text" class="form-control" placeholder="Enter phone number..." name="phone" value="<%= employee.phone %>" onchange="errorPhone()"/>
+            <span id="textPhone" style="color: red;"><%= employee.phoneError %></span>
+        </div>
+        <div class="form-group">
+          <label for="date">Date of Birthday:</label>
+          <% if ( action == "create") { %>
+          <input id="dateInput" type="date" class="form-control" value="<%= employee.date %>" name="date"/>
+          <% } else { %>
+          <input id="dateInput" type="date" class="form-control" value="<%= employee.date %>" name="date"/>
+          <% } %>
+          <span id="textDate" style="color: red;"></span>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select class="form-control" id="gender" name="gender" value=" <%= employee.gender %> ">
+            <option>None</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+      </form>
+    </div>
+  </main>
+
+  <script src="../javascripts/employeeValidate.js"></script> 
+
+</body>
+
+</html>

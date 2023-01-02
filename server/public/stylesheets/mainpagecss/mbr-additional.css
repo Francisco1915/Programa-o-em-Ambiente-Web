@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap);
+body {
+  font-family: Jost;
+}
+.display-1 {
+  font-family: 'Jost', sans-serif;
+  font-size: 5.5rem;
+  line-height: 1.2;
+}
+.display-1 > .mbr-iconfont {
+  font-size: 8.8rem;
+}
+.display-2 {
+  font-family: 'Jost', sans-serif;
+  font-size: 2.8rem;
+  line-height: 1.4;
+}
+.display-2 > .mbr-iconfont {
+  font-size: 4.48rem;
+}
+.display-4 {
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.display-4 > .mbr-iconfont {
+  font-size: 1.6rem;
+}
+.display-5 {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+.display-5 > .mbr-iconfont {
+  font-size: 2.56rem;
+}
+.display-7 {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+.display-7 > .mbr-iconfont {
+  font-size: 1.92rem;
+}
+/* ---- Fluid typography for mobile devices ---- */
+/* 1.4 - font scale ratio ( bootstrap == 1.42857 ) */
+/* 100vw - current viewport width */
+/* (48 - 20)  48 == 48rem == 768px, 20 == 20rem == 320px(minimal supported viewport) */
+/* 0.65 - min scale variable, may vary */
+@media (max-width: 768px) {
+  .display-1 {
+    font-size: 3.85rem;
+    font-size: calc( 2.5749999999999997rem + (5.5 - 2.5749999999999997) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.1 * (2.5749999999999997rem + (5.5 - 2.5749999999999997) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-2 {
+    font-size: 2.24rem;
+    font-size: calc( 1.63rem + (2.8 - 1.63) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.3 * (1.63rem + (2.8 - 1.63) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-4 {
+    font-size: 0.9rem !important;
+    font-size: calc( 1rem + (1 - 1) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.4 * (1rem + (1 - 1) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-5 {
+    font-size: 1.28rem;
+    font-size: calc( 1.21rem + (1.6 - 1.21) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.4 * (1.21rem + (1.6 - 1.21) * ((100vw - 20rem) / (48 - 20))));
+  }
+  .display-7 {
+    font-size: 0.96rem;
+    font-size: calc( 1.07rem + (1.2 - 1.07) * ((100vw - 20rem) / (48 - 20)));
+    line-height: calc( 1.4 * (1.07rem + (1.2 - 1.07) * ((100vw - 20rem) / (48 - 20))));
+  }
+}
+a,
+a:hover {
+  color: #fcf7f7;
+}
+.cid-s1YLYYtmhw {
+  height: 20%;
+  padding-top: 50px;
+  padding-bottom: 0px;
+  background-color: #fafaf5;
+}
+.cid-s1YM3FtOOn {
+  height: 80%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #f9f9f7;
+}
+.cid-s1YM3FtOOn img {
+  width: 100%;
+  transition: all 0.6s ease-in-out;
+  height: 260px;
+  object-fit: cover;
+}
+.cid-s1YM3FtOOn .card-wrapper {
+  background: #191919;
+  padding: 2rem;
+}
+.cid-s1YM3FtOOn .first:before {
+  position: absolute;
+  top: -1rem;
+  z-index: -1;
+  left: 0rem;
+  width: 300px;
+  height: 300px;
+  background: #06d6a0;
+  content: '';
+}
+.cid-s1YM3FtOOn .last:hover:after {
+  content: none;
+}
+.cid-s1YM3FtOOn .last:after {
+  position: absolute;
+  bottom: -1rem;
+  right: 0rem;
+  width: 300px;
+  z-index: -1;
+  height: 300px;
+  background: #06d6a0;
+  content: '';
+}
+.cid-s1YM3FtOOn .card {
+  z-index: 1;
+  position: relative;
+  transition: all 0.3s;
+}
+.cid-s1YM3FtOOn .card:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+.cid-s1YM3FtOOn .card:hover .card-wrapper {
+  background: #06d6a0;
+  color: #ffffff !important;
+}
+.cid-s1YM3FtOOn .card:hover .card-wrapper .mbr-section-text {
+  color: #ffffff !important;
+}

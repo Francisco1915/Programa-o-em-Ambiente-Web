@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= title %>
+    </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+        id="bootstrap-css" />
+    <link rel="stylesheet" href="/stylesheets/cssBook.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="/images/book.png">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/books/<%= book._id %>" class="nav-brand text-dark">
+                        <%= title %>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main site -->
+    <main id="site-main-form">
+        <div class="container">
+            <div class="box-nav d-flex justify-between margin-bottom">
+                <div class="filter">
+                    <a href="/books"><i class="fas fa-angle-double-left"></i> All Books</a>
+                </div>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item border-shadow">
+                    <div class="container row row-col-3">
+                        <div class="col">
+                            <img src="/uploads/bookCovers/<%= book.coverImageName %>" class="imgBookView border-shadow">
+                        </div>
+                        <div class="col margin-left">
+                            <div class="margin-bottom-view">
+                                <h1 class="title"><%= book.title %></h1>
+                                <p class="author"><%= book.author %></p>
+                            </div>
+                            <div class="margin-bottom-zero">
+                                <p>Launch in <%= book.date.toISOString().split('T')[0] %></p>
+                                <p class="isbn">ISBN: <%= book.isbn %></p>
+                                <p class="price">Price: <%= book.price %>€</p>
+                                <% if (book.status=="Old" ) { %>
+                                    <span class="status col rounded-1" style="background-color: red;">
+                                        <%= book.status %>
+                                    </span>
+                                <% } else { %>
+                                    <span class="status col rounded-1" style="background-color: green;">
+                                        <%= book.status %>
+                                    </span>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="col-3 break-word">
+                            <p><%= book.desc %></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

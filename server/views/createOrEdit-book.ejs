@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+    id="bootstrap-css" />
+  <link rel="stylesheet" href="/stylesheets/cssBook.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="/images/book.png">
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header">
+    <nav>
+      <div class="container">
+        <div class="text-center">
+          <a href="/book/add-book" class="nav-brand text-dark">
+            <%= title %>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main site -->
+  <main id="site-main-form">
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+        <div class="filter">
+          <a href="/books"><i class="fas fa-angle-double-left"></i> All Books</a>
+        </div>
+      </div>
+      <!-- Form -->
+      <form id="form" action="<%= action %>" method="<%= method %>" enctype="multipart/form-data">
+        <div class="container row row-cols-2">
+          <div class="form-group col">
+            <label for="title">Title: *</label>
+            <input id="nameInput" type="text" class="form-control" placeholder="Enter title..." name="title"
+              value="<%= book.title %>" />
+            <span id="textTitle" style="color: red">
+              <%= book.titleError %>
+            </span>
+          </div>
+          <div class="form-group col">
+            <label for="author">Author: *</label>
+            <input id="authorInput" type="text" class="form-control" placeholder="Enter author..." name="author"
+              value="<%= book.author %>" />
+            <span id="textAuthor" style="color: red">
+              <%= book.authorError %>
+            </span>
+          </div>
+        </div>
+        <div class="container row row-cols-2">
+          <div class="form-group col">
+            <label for="qt">Qt: *</label>
+            <input id="qt" type="number" min="0" class="form-control" placeholder="Enter number" name="qt"
+              value="<%= book.qt %>" />
+          </div>
+          <div class="form-group col">
+            <label for="date">Date of launch* :</label>
+            <input id="dateInput" type="date" class="form-control" value="<%= book.date.toISOString().split('T')[0] %>"
+              name="date" />
+            <span id="textDate" style="color: red">
+              <%= book.dateError %>
+            </span>
+          </div>
+        </div>
+        <div class="container row row-cols-2">
+          <div class="form-group col">
+            <label for="price">Price:*</label>
+            <input id="priceInput" type="number" class="form-control" name="price" step="0.01"
+              value="<%= book.price %>" />
+            <span id="textPrice" style="color: red">
+              <%= book.priceError %>
+            </span>
+          </div>
+          <div class="form-group col">
+            <label for="status">Type:</label>
+            <select class="form-control" id="type" name="type">
+              <option>True crime</option>
+              <option>Science</option>
+              <option>Horror</option>
+              <option>Comedy</option>
+              <option>History</option>
+              <option>Humor</option>
+              <option>Romance</option>
+            </select>
+            <span id="textStatus" style="color: red">
+              <%= book.typeError %>
+            </span>
+          </div>
+        </div>
+        <div class="container row row-cols-2">
+          <div class="form-group col">
+            <label for="description">Description* :</label>
+            <textarea id="descriptionInput" type="description" class="form-control" name="desc"
+              value="<%= book.desc %>"></textarea>
+            <span id="textDesc" style="color: red">
+              <%= book.descError %>
+            </span>
+          </div>
+        </div>
+        <div class="container row row-cols-2">
+          <div class="form-group col">
+            <% if (action=="create" ) { %>
+              <label for="isbn">ISBN: *</label>
+              <input id="isbnInput" type="text" class="form-control" placeholder="Enter isbn..." name="isbn"
+                value="<%= book.isbn %>" />
+              <span id="textIsbn" style="color: red">
+                <%= book.isbnError %>
+              </span>
+              <% } %>
+          </div>
+          <div class="form-group col">
+            <% if (action=="create" ) { %>
+              <label for="status">Status:</label>
+              <select class="form-control" id="status" name="status">
+                <option>New</option>
+                <option>Old</option>
+              </select>
+              <span id="textStatus" style="color: red">
+                <%= book.statusError %>
+              </span>
+              <% } %>
+          </div>
+          <div class="form-group col">
+              <label for="emphasis">Emphasis:</label>
+              <select class="form-control" id="emphasis" name="emphasis">
+                <option>False</option>
+                <option>True</option>
+              </select>
+              <span id="textEmphasis" style="color: red">
+                <%= book.emphasisError %>
+              </span>
+          </div>
+        </div>
+        <div class="container row row-cols-2">
+          <div class="form-group col">
+            <label for="file" class="btn btn-primary">
+              <i class="fa-solid fa-file-image"></i>
+              Choose a Photo
+            </label>
+            <input type="file" id="file" name="cover">
+            <span id="textCover" style="color: red">
+              <%= book.coverError %>
+            </span>
+          </div>
+        </div>
+        <input type="submit" class="btn btn-primary col" value="Submit" />
+      </form>
+    </div>
+  </main>
+
+</body>
+
+</html>

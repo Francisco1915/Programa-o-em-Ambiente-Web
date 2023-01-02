@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= title %>
+    </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+        id="bootstrap-css" />
+    <link rel="stylesheet" href="/stylesheets/cssMain.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="/images/book.png">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/orders/<%= order._id %>" class="nav-brand text-dark">
+                        <%= title %>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between margin-bottom">
+                <div class="filter">
+                    <a href="/employee"><i class="fas fa-angle-double-left"></i> All Employee</a>
+                </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ClientEmail: <%= order.clientEmail %>
+                </li>
+                <li class="list-group-item">EmployeeEmail: <%=order.employeeEmail%>
+                </li>
+                <li class="list-group-item">PriceOrder: <%= order.priceOrder %>
+                </li>
+                <li class="list-group-item">Books:
+                    <ul class="list-group list-group-flush">
+                        <% order.books.forEach(function (books) { %>
+                            <li class="list-group-item">ISBN: <%= books.isbn %> <br> STATUS: <%= books.status %></li>
+                            <% }) %>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>
